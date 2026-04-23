@@ -1,13 +1,56 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+
+:root {
+  --purple: #7c5dfa;
+  --bg-color: #f8f8fb;
+  --sidebar-bg: #373b53;
+  --card-bg: #ffffff;
+  --text-main: #0c0e1e;
+  --text-secondary: #888eb0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+[data-theme='dark'] {
+  --bg-color: #141625;
+  --sidebar-bg: #1e2139;
+  --card-bg: #1e2139;
+  --text-main: #ffffff;
+  --text-secondary: #dfe3fa;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'League Spartan', sans-serif;
+  transition: 0.3s;
+  overflow-x: hidden; /* Prevents side-scrolling on tiny screens */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-content {
+  margin-left: 100px;
+  padding: 72px 24px;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* MOBILE RESPONSIVE RULES (Tablet & Phone) */
+@media (max-width: 900px) {
+  .app-container { flex-direction: column; }
+  .main-content {
+    margin-left: 0;
+    margin-top: 80px; 
+    padding: 32px 16px;
+  }
+}
+
+/* TINY SCREEN RULES (Below 400px like your 292px target) */
+@media (max-width: 400px) {
+  .main-content { padding: 24px 10px; }
+  h1 { font-size: 24px !important; }
 }
